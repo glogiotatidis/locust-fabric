@@ -4,15 +4,15 @@
 
 ## Setup
 
-`fab -H [IP][,IP][,IP] install_packages install_locust`
+`fab -H [IP][,IP][,IP] --set load_test_repo=[LOCUSTFILE GIT REPO] install_packages install_locust`
 
 ## Master
 
-`fab -H [IP] --set target=[TARGET],load_test_repo=[LOCUSTFILE GIT REPO] run_master`
+`fab -H [IP] --set target=[TARGET] run_master`
 
 ## Slaves
 
-`fab -P -A -H [IP][,IP][,IP] --set target=[TARGET] run_slave`
+`fab -P -A -H [IP][,IP][,IP] --set master_host=[TARGET] run_slave`
 
 
 Note that the master process only schedules jobs and it does not
